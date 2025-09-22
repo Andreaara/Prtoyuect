@@ -24,7 +24,7 @@ public class BancoDocumentos {
         queue.offer(c3);
 
         for (Cliente c : queue){
-            System.out.println("Cliente es atención: " + c.name);
+            System.out.println("Cliente es atención: " + c.name + queue.poll());
             System.out.println("Documentos retirados: "+ c.docs);
             System.out.println("Cola restante: "+ queue.peek());
 
