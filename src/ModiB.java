@@ -12,62 +12,36 @@ public class ModiB {
             {2,4,8,9,10}
 
         };
-
-        int[][] arrModificado = new int[arrTest.length][];
-
-    if(arrTest.length % 2 == 0 ){
         for (int i = 0; i < arrTest.length; i++) {
 
             int arreglo = arrTest[i].length;
+            int valor;
 
-            arrModificado[i] = new int [arreglo + 1];
-            
-            for (int j = 0; j < arrTest[i].length; j++) {
-
-                arrModificado[i][j] = arrTest[i][j]; 
-
-               
-                arrModificado[i][arreglo] = arrTest[i][arreglo - 1 ]+1;
-                
-                
+            if (arreglo % 2 != 0) {
+                valor = 0;
+            } else {
+                valor = arrTest[i][0] + arrTest[i][arreglo - 1];
             }
 
-            
-            
-        }
-    }else if(arrTest.length % 2 == 1){
-            for (int i = 0; i < arrTest.length; i++) {
+            int[] nuevoSubArreglo = new int[arreglo + 1];
 
-            int arreglo = arrTest[i].length;
-
-            arrModificado[i] = new int [arreglo + 1];
-            
-            for (int j = 0; j < arrTest[i].length; j++) {
-
-                arrModificado[i][j] = arrTest[i][j]; 
-
-               
-                arrModificado[i][arreglo] = arrTest[i][arreglo - 1 ] = 0;
-                
-                
+            for (int j = 0; j < arreglo; j++) {
+                nuevoSubArreglo[j] = arrTest[i][j];
             }
+
+            nuevoSubArreglo[arreglo] = valor;
+
+            arrTest[i] = nuevoSubArreglo;
         }
 
-    }
-
-    for (int[] fila : arrModificado) {
-        System.out.println("{");
+    for (int[] fila : arrTest) {
+        System.out.print("{");
         for (int j = 0; j < fila.length; j++) {
             System.out.print(fila[j] +","+" ");
         }
         System.out.println("}");
     }
 
-
-
-
-
     }
-
 
 }
